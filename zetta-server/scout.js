@@ -3,8 +3,8 @@
 var Scout = require("zetta-scout");
 var util = require('util');
 var mqtt = require('mqtt');
-var MqttScout = require('./device.js');
-var LedDevice = require('./device.js');
+var MqttScout = require('./led.js');
+var LedDevice = require('./led.js');
 
 var client = null; //mqtt client
 
