@@ -38,12 +38,20 @@ LedDevice.prototype.init = function (config) {
 
 LedDevice.prototype.turnOff = function (cb) {
   client.publish('home/' + this.name + '/led/control', 'off'); //publish off signal to mqtt topic
-  this.state = 'off';
+  if(this.state == 'off') {
+    // already off, no need to turn off
+  } else {
+    this.state = 'off';
+  }
   cb();
 }
 
 LedDevice.prototype.turnOn = function (cb) {
   client.publish('home/' + this.name + '/led/control', 'on'); //publish on signal to mqtt topic
-  this.state = 'on';
+  if(this.state == 'on') {
+    // already on, no need to turn off
+  } else {
+    this.state = 'on';
+  }
   cb();
 }

@@ -95,23 +95,23 @@ void loop()
     // send message, the Print interface can be used to set the message contents
     // read the input on analog pin 0:
 
-    unsigned long currentMillis = millis();
+    // unsigned long currentMillis = millis();
 
-    if (currentMillis - previousMillis_temp >= temp_interval)
-    {
-        previousMillis_temp = currentMillis; //reset timing
+    // if (currentMillis - previousMillis_temp >= temp_interval)
+    // {
+    //     previousMillis_temp = currentMillis; //reset timing
 
-        int sensorValue = analogRead(tempPin);
-        float voltage = sensorValue * 3.3; // converting reading to voltage, using 3.3v here
-        voltage /= 1024.0;
-        float temperature = (voltage - 0.5) * 100; //converting from 10 mv per degree wit 500 mV offset
+    //     int sensorValue = analogRead(tempPin);
+    //     float voltage = sensorValue * 3.3; // converting reading to voltage, using 3.3v here
+    //     voltage /= 1024.0;
+    //     float temperature = (voltage - 0.5) * 100; //converting from 10 mv per degree wit 500 mV offset
 
-        mqttClient.beginMessage(post_topic);
-        mqttClient.print("TEMP ");
-        mqttClient.print(temperature);
-        mqttClient.endMessage();
-        //debug
-        //unsigned long millisdelay = millis() - previousMillis_temp;
-        //Serial.println(millisdelay);
-    }
+    //     mqttClient.beginMessage(post_topic);
+    //     mqttClient.print("TEMP ");
+    //     mqttClient.print(temperature);
+    //     mqttClient.endMessage();
+    //     //debug
+    //     //unsigned long millisdelay = millis() - previousMillis_temp;
+    //     //Serial.println(millisdelay);
+    // }
 }

@@ -1,2 +1,2 @@
-#define SECRET_SSID "wifi_user"
-#define SECRET_PASS "wifi_pass"
+#define SECRET_SSID "CCS506"
+#define SECRET_PASS "gut45laz"
