@@ -1,0 +1,22 @@
+{
+  "name": "argo-formatter",
+  "version": "0.0.0",
+  "description": "Use formats based on content type.",
+  "main": "formatter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/argo/argo-formatter.git"
+  },
+  "keywords": [
+    "argo",
+    "formatter"
+  ],
+  "author": "Kevin Swiber <kswiber@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/argo/argo-formatter/issues"
+  }
+}
