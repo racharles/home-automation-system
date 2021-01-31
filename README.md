@@ -16,7 +16,7 @@ run ```node index.js```\
 Zetta server should start, led device discovered
 
 On the pi, a tool like REST client can be used to interact with the zetta api, or cURL in the terminal.\
-Send a post request to the LED device defined by the zetta server with action=turn-on or turn-off\
+Send a post request to the LED device defined by the zetta server with action=turn-on or turn-off
 
 #### Arduino:
 connect led to pins D2 and GND\
