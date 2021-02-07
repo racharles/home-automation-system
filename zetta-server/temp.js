@@ -25,10 +25,20 @@ TempDevice.prototype.init = function (config) {
     .type('temp')
     .monitor('reading')
     .name(this.name)
+  
+  client.subscribe(this.topic + "data");
+  // mqtt listener
+  client.on('message', function(topic, message, packet) {
+    console.log(message.toString());
+    this.reading = message.toString();
+  });
 
+<<<<<<< HEAD
   var self = this;
   setInterval(function() {
     client.subscribe(this.topic + "data");
     self.reading = 0;
   }, 1000);
+=======
+>>>>>>> a54103a1a02ef62c933ac0a914be4b575359d5da
 };
