@@ -8,10 +8,10 @@ var mqtt = require('mqtt');
 var client = null;
 client = mqtt.connect();
 
-var LedDevice = module.exports = function (_name, _client) {
+var LedDevice = module.exports = function (_name, _topic) {
   Device.call(this);
   this.name = _name;
-  this.client = _client;
+  this.topic = _topic; // mqtt topic ex. home/arduino/led/
 
   Device.call(this);
 }
@@ -37,21 +37,13 @@ LedDevice.prototype.init = function (config) {
 
 
 LedDevice.prototype.turnOff = function (cb) {
-  client.publish('home/' + this.name + '/led/control', 'off'); //publish off signal to mqtt topic
-  if(this.state == 'off') {
-    // already off, no need to turn off
-  } else {
-    this.state = 'off';
-  }
+  client.publish(this.topic + "control"); //publish off signal to mqtt control topic
+  this.state == "off";
   cb();
 }
 
 LedDevice.prototype.turnOn = function (cb) {
-  client.publish('home/' + this.name + '/led/control', 'on'); //publish on signal to mqtt topic
-  if(this.state == 'on') {
-    // already on, no need to turn off
-  } else {
+  client.publish(this.topic + "control"); //publish on signal to mqtt control topic
     this.state = 'on';
-  }
   cb();
 }

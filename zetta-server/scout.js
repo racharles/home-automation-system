@@ -17,7 +17,9 @@ util.inherits(MqttScout, Scout);
 
 MqttScout.prototype.init = function(next) {
     var self = this;
-    var topic = "home/arduino/led/control"; // mqtt topic
-    self.discover(LedDevice, "arduino"); // discover LED device
+    var led_topic = "home/arduino/led/"; // mqtt topics
+    var temp_topic = "home/arduino/temp/"
+    self.discover(LedDevice, led_topic); // discover LED device
+    self.discover(TempDevice, temp_topic); // discover temp sensor device
     next();
 }
