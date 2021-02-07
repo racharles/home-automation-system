@@ -25,8 +25,8 @@ LedDevice.prototype.init = function (config) {
     .state('off')
     .name(this.name)
     // Define the transitions allowed by the state machine
-    .when('off', { allow: ['turn-on'] })
-    .when('on', { allow: ['turn-off'] })
+    .when('off', { allow: ['turn-on'] , allow: ['turn-off']}) // TODO: fix transitions
+    .when('on', { allow: ['turn-off'], allow: ['turn-on']})
 
     // Map the transitions to JavaScript methods
     .map('turn-off', this.turnOff)
@@ -37,6 +37,7 @@ LedDevice.prototype.init = function (config) {
 
 
 LedDevice.prototype.turnOff = function (cb) {
+  console.log("turnoff");
   client.publish('home/' + this.name + '/led/control', 'off'); //publish off signal to mqtt topic
   if(this.state == 'off') {
     // already off, no need to turn off
@@ -47,6 +48,7 @@ LedDevice.prototype.turnOff = function (cb) {
 }
 
 LedDevice.prototype.turnOn = function (cb) {
+  console.log("turnon");
   client.publish('home/' + this.name + '/led/control', 'on'); //publish on signal to mqtt topic
   if(this.state == 'on') {
     // already on, no need to turn off
