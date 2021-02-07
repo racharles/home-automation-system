@@ -5,6 +5,7 @@ var util = require('util');
 var mqtt = require('mqtt');
 var MqttScout = require('./led.js');
 var LedDevice = require('./led.js');
+var TempDevice = require("./temp.js");
 
 var client = null; //mqtt client
 
@@ -17,7 +18,9 @@ util.inherits(MqttScout, Scout);
 
 MqttScout.prototype.init = function(next) {
     var self = this;
-    var topic = "home/arduino/led/control"; // mqtt topic
-    self.discover(LedDevice, "arduino"); // discover LED device
+    var led_topic = "home/arduino/led/"; // mqtt topic
+    var temp_topic = "home/arduino/temp/"; // mqtt topic
+    self.discover(LedDevice, "arduino-led",led_topic); // discover LED device
+    self.discover(TempDevice, "arduino-temp",temp_topic);
     next();
 }

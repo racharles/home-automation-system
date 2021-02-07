@@ -8,10 +8,10 @@ var mqtt = require('mqtt');
 var client = null;
 client = mqtt.connect();
 
-var TempDevice = module.exports = function (_name, _client) {
+var TempDevice = module.exports = function (_name, _topic) {
   Device.call(this);
   this.name = _name;
-  this.client = _client;
+  this.topic = _topic;
   this.reading = null;
 
   Device.call(this);
@@ -25,10 +25,12 @@ TempDevice.prototype.init = function (config) {
     .type('temp')
     .monitor('reading')
     .name(this.name)
+  
+  client.subscribe(this.topic + "data");
+  // mqtt listener
+  client.on('message', function(topic, message, packet) {
+    console.log(message.toString());
+    this.reading = message.toString();
+  });
 
-  var self = this;
-  setInterval(function() {
-    client.subscribe('home/arduino/temp/data');
-    self.reading = 0;
-  }, 1000);
 };
