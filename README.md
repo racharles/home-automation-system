@@ -20,8 +20,6 @@ Verify node and npm are installed correctly with ```node -v``` and ```npm -v```
 
 Make sure zetta-server is on Pi
 
-Navigate to the zetta-server directory
-
 Open a new terminal and navigate to the zetta-server directory
 
 Initialize Node.js using ```npm init``` with all defaults
@@ -42,7 +40,7 @@ Use ```curl http://127.0.0.1:1337/servers/Prototype%20Zetta%20Server``` to see t
 
 The URL can be followed to individual devices, which each have their unique id.
 
-To transition the state of the LED, use ```curl -i -X POST [href link to device] -d'action=turn-on'```
+To transition the state of the LED, use ```curl -i -X POST [href link to device] -d action=turn-on'```
 
 Alternatively, a REST client can be used for POST requests as well.
 
