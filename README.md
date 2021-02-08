@@ -1,6 +1,6 @@
 # Home Automation System
 ## Prototype v0.1 Setup:
----
+
 ### **Raspberry Pi**
 
 
