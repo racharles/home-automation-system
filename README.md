@@ -26,6 +26,8 @@ Initialize Node.js using ```npm init``` with all defaults
 
 Install zetta Node.js module with ```npm install zetta --save```
 
+Install Mqtt.js module with ```npm install mqtt --save```
+
 To test, run ```node index.js``` to start the server
 
 Zetta server should start and discover the LED device and Temp sensor device
