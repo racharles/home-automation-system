@@ -11,11 +11,8 @@ client = mqtt.connect();
 var LedDevice = module.exports = function (_name, _topic) {
   Device.call(this);
   this.name = _name;
-<<<<<<< HEAD
-  this.topic = _topic; // mqtt topic ex. home/arduino/led/
-=======
+
   this.topic = _topic;
->>>>>>> a54103a1a02ef62c933ac0a914be4b575359d5da
 
   Device.call(this);
 }
