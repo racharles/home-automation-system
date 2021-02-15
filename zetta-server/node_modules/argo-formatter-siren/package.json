@@ -1,0 +1,22 @@
+{
+  "name": "argo-formatter-siren",
+  "version": "0.0.0",
+  "description": "A Siren formatter for Argo.",
+  "main": "siren.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/argo/argo-formatter-siren.git"
+  },
+  "keywords": [
+    "siren",
+    "formatter"
+  ],
+  "author": "Kevin Swiber <kswiber@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/argo/argo-formatter-siren/issues"
+  }
+}
