@@ -19,7 +19,32 @@
 process.EventEmitter = require('events').EventEmitter; // fixes zetta v1.5.1
 var zetta = require('zetta');
 var mqttScout = require('./scout.js');
+const https = require('https');
 
+const options = {
+  hostname: 'http://127.0.0.1:1338',
+  method: 'POST',
+  headers: {
+    'Connection':'Upgrade',
+    'Upgrade':'websocket'
+  }
+}
+
+
+const req = https.request(options, res => {
+  console.log(`statusCode: ${res.statusCode}`)
+
+  res.on('data', d => {
+    process.stdout.write(d)
+  })
+})
+
+req.on('error', error => {
+  console.error(error)
+})
+
+req.write(data)
+req.end()
 
 zetta()
   .name('Prototype Zetta Server v0.1')
